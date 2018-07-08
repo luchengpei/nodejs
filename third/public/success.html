@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Success page</title>
+    <style>
+            .content
+        {
+            width: 400px;
+            height: auto;
+            margin: 0 auto;
+            border: 1px solid #CCC;
+            text-align: center;
+        }
+        .content ul
+        {
+            list-style: none;
+            padding: 0;
+        }
+        .content ul li
+        {
+            line-height: 40px;
+        }
+        div
+        {
+            font-weight: bold;
+            color: Red;
+            font-size: 12px;
+        }
+        .codeli{
+          margin-left: -90px
+        }
+        #smscode,#emailcode,#code{
+            width: 50px;
+        }
+        .btn {
+            width: 50px;
+            height:20px
+        }
+    </style>
+</head>
+<body>
+    <script src="https://cdn.bootcss.com/jquery/3.3.0/jquery.js"></script>
+    <script>
+        $(function(){
+            
+            $.ajax({
+                method:'post',
+                url:'/checklogin',
+                success(d){
+                    if(d.length<0){
+                        location.href='/regist.html'
+                    }
+                },error(e){
+                    location.href='/regist.html'
+                }
+            })
+        })
+    </script>
+    <div class="content">
+            <ul>
+                    <li>注册</li>
+            
+                    <li>用户名：
+                        <input id="user"type="text"  />
+                        <div id="checkName"></div>
+                    </li>
+                    <li>密&nbsp;&nbsp;&nbsp;码：
+                        <input id="password" name="password" type="password"/>
+                        <div id="checkPwd"></div>
+                    </li>
+                 
+                    <li  id="phoneli">手机号码：
+                        <input id="phone"type="phone"  />
+                      
+                        <div id="checkphone"></div>
+                    </li>
+            
+                    <li>邮箱：
+                        <input id="email"type="email"  />
+                        <div id="checkemail"></div>
+                    </li>
+                    
+                    <li>
+                        <input id="Button1" type="button" value="注册"  />
+                        <input type="button" value="登录" id="l" />
+                    </li>
+                </ul>
+    </div>
+</body>
+</html>
